@@ -220,10 +220,6 @@ Cumpliendo con los requisitos del Sprint 5 y 6:
 
 ## 👥 9. Trabajo en Equipo y Distribución de Commits
 
-Para cumplir con el requerimiento de entrega en equipo, se generó la guía completa en PDF:  
-📄 **[Guia_Commits_GitHub_Equipo.pdf](./Guia_Commits_GitHub_Equipo.pdf)** (también disponible en versión lectura [GUIA_COMMITS_EQUIPO.md](./GUIA_COMMITS_EQUIPO.md)).
-
-La guía distribuye las responsabilidades en 5 fases lógicas:
 1. **Integrante 1**: Inicialización del repo, estructura del backend, servidor Express y conexión MongoDB Mongoose.
 2. **Integrante 2**: Esquema Mongoose (`Product.js`), controlador CRUD completo y rutas de la API.
 3. **Integrante 3**: Configuración de React con Vite, React Router DOM, Navbar, Footer, Inicio y Contacto.
