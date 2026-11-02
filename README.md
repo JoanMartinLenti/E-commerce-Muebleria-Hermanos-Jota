@@ -20,8 +20,8 @@ Los dos componentes de la aplicación están preparados y listos para ser desple
 
 | Servicio | Plataforma de Hosting | Enlace / URL en Producción | Estado |
 | :--- | :--- | :--- | :--- |
-| **Frontend (React SPA)** | **Vercel** | [https://muebleria-jota-frontend.vercel.app](https://muebleria-jota-frontend.vercel.app) *(o tu dominio de Vercel)* | ![Vercel](https://img.shields.io/badge/Deploy-Vercel-success) |
-| **Backend (Express API)** | **Render** | [https://muebleria-jota-backend.onrender.com](https://muebleria-jota-backend.onrender.com) *(o tu servicio en Render)* | ![Render](https://img.shields.io/badge/Deploy-Render-success) |
+| **Frontend (React SPA)** | **Vercel** | https://e-commerce-muebleria-hermanos-jota-2llr6fvnm-grupo-36.vercel.app/ | ![Vercel](https://img.shields.io/badge/Deploy-Vercel-success) |
+| **Backend (Express API)** | **Render** | https://e-commerce-muebleria-hermanos-jota-k4m3.onrender.com/ | ![Render](https://img.shields.io/badge/Deploy-Render-success) |
 
 > 💡 **Nota para evaluación**: Si utilizas nuevos despliegues con tus cuentas de Render y Vercel, simplemente sustituye los dominios anteriores en este archivo `README.md`. El endpoint de verificación rápida del backend es:  
 > `https://<tu-backend-en-render>.onrender.com/api/health`
@@ -78,52 +78,7 @@ muebleria-jota/
 
 ---
 
-## ⚙️ 4. Configuración de Variables de Entorno (.env)
-
-### A. Backend (`server/.env`)
-Crear un archivo `.env` dentro de la carpeta `server/` (tomando como base `server/.env.example`):
-
-```env
-# Puerto de escucha del servidor Express (en Render se asigna automáticamente)
-PORT=5000
-
-# Cadena de conexión de MongoDB Atlas (reemplazar <usuario> y <password>)
-MONGO_URI=mongodb+srv://usuario:password@cluster0.mongodb.net/muebleria_jota?retryWrites=true&w=majority
-
-# URL de tu frontend en desarrollo o producción (para validación CORS)
-FRONTEND_URL=http://localhost:5173
-
-# Entorno de ejecución
-NODE_ENV=development
-```
-
-> **Configuración en Render:**  
-> En el panel de Render (`Dashboard` -> tu `Web Service` -> pestaña **Environment**), agrega la variable:  
-> - `MONGO_URI`: String de conexión de MongoDB Atlas.  
-> - `NODE_ENV`: `production`  
-> - `FRONTEND_URL`: `https://tu-proyecto-en-vercel.vercel.app`
-
----
-
-### B. Frontend (`client/.env`)
-Crear un archivo `.env` dentro de la carpeta `client/` (tomando como base `client/.env.example`):
-
-```env
-# En desarrollo local:
-VITE_API_URL=http://localhost:5000/api
-
-# En producción (Vercel):
-# VITE_API_URL=https://muebleria-jota-backend.onrender.com/api
-```
-
-> **Configuración en Vercel:**  
-> En el panel de Vercel (`Project Settings` -> **Environment Variables**), agrega:  
-> - **Key**: `VITE_API_URL`  
-> - **Value**: `https://tu-backend-en-render.onrender.com/api`
-
----
-
-## 🚀 5. Instalación y Ejecución en Local
+## 🚀 4. Instalación y Ejecución en Local
 
 ### Prerrequisitos
 - Node.js versión 18 o superior.
@@ -155,7 +110,7 @@ Abre tu navegador en [http://localhost:5173](http://localhost:5173).
 
 ---
 
-## 📡 6. Documentación de la API RESTful
+## 📡 5. Documentación de la API RESTful
 
 Ruta base: `/api/productos`
 
@@ -183,7 +138,7 @@ Ruta base: `/api/productos`
 
 ---
 
-## 🧭 7. Rutas del Frontend (React Router DOM)
+## 🧭 6. Rutas del Frontend (React Router DOM)
 
 Cumpliendo con los requisitos del Sprint 5 y 6:
 - `/`: **Inicio** — Presentación, propuesta de valor, categorías y muebles destacados.
@@ -195,30 +150,7 @@ Cumpliendo con los requisitos del Sprint 5 y 6:
 
 ---
 
-## ☁️ 8. Guía de Despliegue en la Nube
-
-### Despliegue del Backend en Render
-1. En Render, crea un nuevo **Web Service**.
-2. Conecta tu repositorio de GitHub.
-3. Configura:
-   - **Root Directory**: `server`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-4. En **Environment Variables**, agrega `MONGO_URI` y `FRONTEND_URL`.
-5. Guarda y despliega.
-
-### Despliegue del Frontend en Vercel
-1. En Vercel, selecciona **Add New Project** e importa el repositorio.
-2. Configura:
-   - **Root Directory**: Selecciona `client`.
-   - **Framework Preset**: `Vite`.
-3. En **Environment Variables**, agrega:
-   - `VITE_API_URL` = `https://<tu-backend-en-render>.onrender.com/api`
-4. Despliega. El archivo `client/vercel.json` ya incluye las reglas de reescritura para evitar errores al recargar páginas internas.
-
----
-
-## 👥 9. Trabajo en Equipo y Distribución de Commits
+## 👥 7. Trabajo en Equipo y Distribución de Commits
 
 1. **Integrante 1**: Inicialización del repo, estructura del backend, servidor Express y conexión MongoDB Mongoose.
 2. **Integrante 2**: Esquema Mongoose (`Product.js`), controlador CRUD completo y rutas de la API.
