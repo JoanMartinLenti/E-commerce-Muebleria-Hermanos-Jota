@@ -99,7 +99,7 @@ NODE_ENV=development
 
 > **Configuración en Render:**  
 > En el panel de Render (`Dashboard` -> tu `Web Service` -> pestaña **Environment**), agrega la variable:  
-> - `MONGO_URI`: Tu string de conexión de MongoDB Atlas.  
+> - `MONGO_URI`: String de conexión de MongoDB Atlas.  
 > - `NODE_ENV`: `production`  
 > - `FRONTEND_URL`: `https://tu-proyecto-en-vercel.vercel.app`
 
