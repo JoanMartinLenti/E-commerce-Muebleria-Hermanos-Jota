@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 // Carga variables de entorno desde .env
 dotenv.config();
@@ -75,6 +77,8 @@ app.get('/', (req, res) => {
 
 // Rutas de la API
 app.use('/api/productos', productRoutes);
+app.use('/api/usuarios', authRoutes);
+app.use('/api/pedidos', orderRoutes);
 
 // Manejo de rutas no encontradas (404)
 app.use((req, res, next) => {
