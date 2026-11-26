@@ -107,3 +107,59 @@ export const deleteProduct = async (id) => {
 
   return data.data;
 };
+
+/**
+ * Registrar un usuario nuevo (POST /usuarios/registro)
+ */
+export const registerUser = async ({ nombre, email, password }) => {
+  const response = await fetch(`${BASE_URL}/usuarios/registro`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, email, password }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    const details = data.errors ? data.errors.join(', ') : data.message;
+    throw new Error(details || 'Error al registrar el usuario');
+  }
+
+  return data.data;
+};
+
+/**
+ * Iniciar sesión (POST /usuarios/login). Devuelve { token, user }
+ */
+export const loginUser = async ({ email, password }) => {
+  const response = await fetch(`${BASE_URL}/usuarios/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Error al iniciar sesión');
+  }
+
+  return { token: data.token, user: data.user };
+};
+
+/**
+ * Obtener los pedidos del usuario autenticado (GET /pedidos/mis-pedidos)
+ */
+export const getMyOrders = async (token) => {
+  const response = await fetch(`${BASE_URL}/pedidos/mis-pedidos`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Error al obtener tus pedidos');
+  }
+
+  return data.data;
+};
